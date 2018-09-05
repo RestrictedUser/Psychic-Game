@@ -30,8 +30,6 @@ var wins = 0;
 var losses = 0;
 //var to hold value of the number of guess left. will require use of '--' instead of '++' because it is counting down not up
 var left = 9;
-// var to hold value to determine how many guess are available
-var guesses = 9;
 // var to hold an array to display what guesses have been chosen already
 var guessesSoFar = [];
 // value to hold the computer's guess
@@ -61,20 +59,14 @@ var newGame = function() {
     soFar();
 }
 
-/* function to assign a value based on user key input 
-var userGuess is assigned value of the event key
-var left subtracts 1 guess from counter on key event
-var guessesSoFar array gets value of userGuess added to it with .push
-var soFar executes and its function uses innerHTML to add the key events value
-var guessLeft executes and subtracts 1 from the counter
-if var left value is greater than 0 the player gets a message displaying they won (calling a +1 to var wins and a new game by exectuing var newGame function)
-else if left == 0 add +1 to var losses and display message (exectute var newGame function)  */
+//key event 
 document.onkeyup = function(event) {
 	var userGuess = event.key;
     left--;
     guessesSoFar.push(userGuess);
     soFar();
-    guessesLeft();
+	guessesLeft();
+	//conditions statement for win/lose
     if (left > 0 && userGuess == winningLetter){
         wins++
         document.getElementById("wins").innerHTML = "Wins: " + wins;
