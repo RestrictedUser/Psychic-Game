@@ -75,15 +75,13 @@ document.onkeyup = function(event) {
     guessesSoFar.push(userGuess);
     soFar();
     guessesLeft();
-    if (left > 0) {
-         if (userGuess == winningLetter) {
-        	wins++;
-        	document.getElementById("wins").innerHTML = "Wins:" + wins;
-            newGame();
-         }  
-    } else if (left == 0) {
-    	losses++;
-    	document.getElementById("losses").innerHTML = "Losses:" + losses;
+    if (left > 0 && userGuess == winningLetter){
+        wins++
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        newGame();
+    }else if ( left == 0){
+        losses++;
+        document.getElementById("losses").innerHTML = "Losses: " + losses;
         newGame();
     }
-};
+     };
